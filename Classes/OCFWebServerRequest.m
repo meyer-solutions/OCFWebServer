@@ -160,6 +160,7 @@ static NSStringEncoding _StringEncodingFromCharset(NSString* charset) {
 
 #pragma mark - Properties
 @property(nonatomic, copy, readwrite) NSData *data;  // Only valid after open / write / close sequence
+@property(nonatomic, copy, readwrite) NSDictionary *arguments;
 
 @end
 
@@ -194,6 +195,11 @@ static NSStringEncoding _StringEncodingFromCharset(NSString* charset) {
 
 - (BOOL)close {
   DCHECK(_data != nil);
+
+    NSString *charset = _ExtractHeaderParameter(self.contentType, @"charset");
+    NSString *string = [[NSString alloc] initWithData:self.data encoding:_StringEncodingFromCharset(charset)];
+    self.arguments = OCFWebServerParseURLEncodedForm(string);
+    
   return YES;
 }
 

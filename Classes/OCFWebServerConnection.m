@@ -324,6 +324,9 @@ static dispatch_queue_t _formatterQueue = NULL;
         } else {
           CFHTTPMessageSetHeaderFieldValue(weakSelf.responseMessage, CFSTR("Cache-Control"), CFSTR("no-cache"));
         }
+        if (weakSelf.response.eTag) {
+            CFHTTPMessageSetHeaderFieldValue(weakSelf.responseMessage, CFSTR("ETag"), (__bridge CFStringRef)weakSelf.response.eTag);
+        }
         [weakSelf.response.additionalHeaders enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL* stop) {
           CFHTTPMessageSetHeaderFieldValue(weakSelf.responseMessage, (__bridge CFStringRef)(key), (__bridge CFStringRef)(obj));
         }];

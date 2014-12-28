@@ -44,6 +44,7 @@
 @property(nonatomic) NSUInteger cacheControlMaxAge;  // Default is 0 seconds i.e. "no-cache"
 @property(nonatomic, readonly, copy) NSDictionary *additionalHeaders;
 @property (nonatomic, copy) NSDictionary *userInfo;
+@property (nonatomic, copy) NSString* eTag;
 
 #pragma mark - Creating
 + (instancetype)response;

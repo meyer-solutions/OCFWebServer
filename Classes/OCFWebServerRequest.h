@@ -69,6 +69,7 @@
 
 #pragma mark - Properties
 @property(nonatomic, copy, readonly) NSData *data;  // Only valid after open / write / close sequence
+@property(nonatomic, copy, readonly) NSDictionary *arguments;  // Only valid after open / write / close sequence
 
 @end
 
