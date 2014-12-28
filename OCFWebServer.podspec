@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "OCFWebServer"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Lightweight, modern and asynchronous HTTP server written in Objective-C."
   s.description  = <<-DESC
 	Original author: Pierre-Olivier Latour
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/Objective-Cloud/OCFWebServer"
   s.license      = 'MIT'
   s.author       = { "Christian Kienle" => "me@christian-kienle.de" }
-  s.source       = { :git => "https://github.com/Objective-Cloud/OCFWebServer.git", :tag => "1.0.1" }
+  s.source       = { :git => "https://github.com/meyer-solutions/OCFWebServer", :commit => "8031eba9e6b5dcc62adc664a82dca60937671e66" }
 
   # s.platform     = :ios, '5.0'
   s.ios.deployment_target = '6.0'
