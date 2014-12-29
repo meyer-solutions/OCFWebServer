@@ -198,6 +198,9 @@ static NSStringEncoding _StringEncodingFromCharset(NSString* charset) {
 
     NSString *charset = _ExtractHeaderParameter(self.contentType, @"charset");
     NSString *string = [[NSString alloc] initWithData:self.data encoding:_StringEncodingFromCharset(charset)];
+   
+    //NSLog(@"paramter:%@", OCFWebServerUnescapeURLString(string));
+    
     self.arguments = OCFWebServerParseURLEncodedForm(string);
     
   return YES;
