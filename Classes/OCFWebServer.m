@@ -82,13 +82,13 @@ NSDictionary* OCFWebServerParseURLEncodedForm(NSString* form) {
     if (![scanner scanUpToString:@"=" intoString:&key] || [scanner isAtEnd]) {
       break;
     }
-    [scanner setScanLocation:([scanner scanLocation])];
+    [scanner setScanLocation:([scanner scanLocation]+1)];
     
       //NSLog(@"key:%@",OCFWebServerUnescapeURLString(key));
       
     NSString* value = nil;
     if (![scanner scanUpToString:@"&" intoString:&value]) {
-      break;
+      value = @"";
     }
     
     key = [key stringByReplacingOccurrencesOfString:@"+" withString:@" "];
